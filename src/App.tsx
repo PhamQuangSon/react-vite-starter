@@ -3,10 +3,10 @@ import { Suspense, useEffect } from "react";
 import { useThemeStore } from "@/store/themeStore";
 import { Router, RouterProvider } from "@tanstack/react-router";
 
-import withLayout from "./utils/withLayout";
 import { routeTree } from "./routeTree.gen";
 
 import "./App.css";
+
 const router = new Router({ routeTree });
 
 function App() {
@@ -17,10 +17,16 @@ function App() {
   }, [isDarkMode]);
 
   return (
-    <Suspense fallback={<div className="p-6">Loading app...</div>}>
+    <Suspense
+      fallback={
+        <div className="p-6 text-center text-sm font-medium text-gray-500">
+          Đang khởi tạo ứng dụng...
+        </div>
+      }
+    >
       <RouterProvider router={router} />
     </Suspense>
   );
 }
 
-export default withLayout(App);
+export default App;

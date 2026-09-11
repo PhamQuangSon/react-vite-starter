@@ -2,3 +2,7 @@
 dist
 ladle-build
 .ladle
+playwright.config.ts
+tests
+tests-examples
+src/mocks

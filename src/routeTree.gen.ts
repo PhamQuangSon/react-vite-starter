@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ErrorRouteImport } from './routes/error'
+import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as SearchRouteImport } from './routes/search'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const ErrorRoute = ErrorRouteImport.update({
   id: '/error',
   path: '/error',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -38,12 +44,14 @@ const SearchRoute = SearchRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/error': typeof ErrorRoute
+  '/favorites': typeof FavoritesRoute
   '/notifications': typeof NotificationsRoute
   '/search': typeof SearchRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/error': typeof ErrorRoute
+  '/favorites': typeof FavoritesRoute
   '/notifications': typeof NotificationsRoute
   '/search': typeof SearchRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/error': typeof ErrorRoute
+  '/favorites': typeof FavoritesRoute
   '/notifications': typeof NotificationsRoute
   '/search': typeof SearchRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/error' | '/notifications' | '/search'
+  fullPaths: '/' | '/error' | '/favorites' | '/notifications' | '/search'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/error' | '/notifications' | '/search'
-  id: '__root__' | '/' | '/error' | '/notifications' | '/search'
+  to: '/' | '/error' | '/favorites' | '/notifications' | '/search'
+  id: '__root__' | '/' | '/error' | '/favorites' | '/notifications' | '/search'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ErrorRoute: typeof ErrorRoute
+  FavoritesRoute: typeof FavoritesRoute
   NotificationsRoute: typeof NotificationsRoute
   SearchRoute: typeof SearchRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/error'
       fullPath: '/error'
       preLoaderRoute: typeof ErrorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ErrorRoute: ErrorRoute,
+  FavoritesRoute: FavoritesRoute,
   NotificationsRoute: NotificationsRoute,
   SearchRoute: SearchRoute,
 }

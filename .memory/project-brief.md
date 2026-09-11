@@ -2,19 +2,20 @@
 
 ## Overview
 
-This repository is a minimal browser-focused React starter for building new Vite applications. It provides routing, Tailwind styling, reusable UI primitives, theme persistence, unit testing, end-to-end testing, linting, formatting, and Git hooks without prescribing a business domain.
+PokéDex Hub is a browser-focused React application for exploring Pokémon and managing personal collections. It provides responsive routes, Tailwind styling, reusable UI primitives, persisted state, unit testing, end-to-end testing, linting, formatting, and Git hooks.
 
 ## Current Experience
 
-- A small starter home route.
-- TanStack Router routes for home, search, error, and notifications.
+- An Explore route at `/` with debounced search, type filters, pagination, and Pokémon detail views.
+- A Favorites route at `/favorites` with custom collection groups and group insights.
+- PokéAPI integration through `src/services/pokemonApi.ts`, including mapping and in-memory detail caching.
 - A shared layout with a persisted light/dark theme toggle.
-- Reusable form and UI primitives ready for a new feature.
+- Persisted favorites and collection groups through Zustand and `localStorage`.
 
 ## Intended Use
 
-Add domain features under `src/routes/`, shared components under `src/components/`, and state only when a feature needs it.
+Add Pokémon features under `src/routes/` and `src/components/pokemon/`, keep API behavior in `src/services/`, and add state only when a feature needs it.
 
 ## Non-goals
 
-The base does not include authentication, a backend, database access, API mocks, real-time sockets, post/article data, Prisma, Next.js, Rust, or WebAssembly.
+The application does not include authentication, a backend, database access, API mocks, real-time sockets, post/article data, Prisma, Next.js, Rust, or WebAssembly.

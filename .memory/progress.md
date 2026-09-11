@@ -11,9 +11,18 @@
 - [x] pnpm package manager and lockfile
 - [x] AI-readable project documentation in `AGENTS.md`, `.claude/`, and `.memory/`
 
-## Feature Backlog
+## PokéDex Plan Complete
 
-- [ ] Define the product domain and first route workflow
-- [ ] Add feature-specific state only when needed
-- [ ] Add focused unit tests for new pure logic and components
-- [ ] Add Playwright coverage for the primary browser workflow
+- [x] Define the Pokémon Explore and Favorites workflows
+- [x] Add PokéAPI service, response mapping, and in-memory caching
+- [x] Add persisted favorites and custom collection groups
+- [x] Add Explore search, type filtering, pagination, and detail modal
+- [x] Add Favorites collection management and empty states
+- [x] Add focused service and store unit tests
+
+## Follow-up Work
+
+- [ ] Add Playwright coverage for Explore and Favorites workflows
+- [ ] Cover loading and network failure states in browser tests
+- [ ] Run an accessibility review for dialogs, menus, and keyboard navigation
+- [ ] Consider optional future enhancements documented in `README.md`
