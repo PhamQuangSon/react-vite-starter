@@ -1,16 +1,16 @@
 export interface IInputProps {
   title: string;
   name: string;
-  register?: any;
-  options?: any;
+  register?: unknown;
+  options?: unknown;
   required?: boolean;
   type?: "email" | "text" | "password";
   disabled?: boolean;
   showRequired?: boolean;
-  watch?: any;
-  children?: any;
+  watch?: unknown;
+  children?: unknown;
   light?: boolean;
-  control?: any;
+  control?: unknown;
   classExtend?: string;
 }
 
@@ -22,4 +22,3 @@ export interface ISelectProps extends IInputProps {
   items: TOption[];
   defaultValue?: TOption[];
 }
-

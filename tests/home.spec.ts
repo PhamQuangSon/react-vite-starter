@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from "@playwright/test";
 
-test('homepage has welcome text', async ({ page }) => {
-  await page.goto('/')
-  await expect(page).toHaveTitle(/Vite|React/i)
-})
+test("homepage has welcome text", async ({ page }) => {
+  await page.goto("/");
+  await expect(page).toHaveTitle(/Vite|React/i);
+});

@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src",
+    "tests",
+    "tests-examples",
+    "playwright.config.ts",
+    "vite.config.ts",
+    "postcss.config.js",
+    "tailwind.config.ts",
+    "jest.config.ts"
+  ]
+}

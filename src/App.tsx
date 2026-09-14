@@ -7,6 +7,7 @@ import withLayout from "./utils/withLayout";
 import { routeTree } from "./routeTree.gen";
 
 import "./App.css";
+
 const router = new Router({ routeTree });
 
 function App() {
