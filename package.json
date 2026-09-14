@@ -12,7 +12,7 @@
     "lint": "eslint . --fix --max-warnings=0",
     "test": "NODE_NO_WARNINGS=1 jest",
     "test:watch": "jest --watch",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright show-report",
@@ -107,6 +107,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
+      "pnpm exec eslint --max-warnings=0 --fix",
       "pnpm test -- --bail --findRelatedTests"
     ]
   }
